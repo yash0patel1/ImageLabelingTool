@@ -5,12 +5,23 @@ from PIL import Image
 import os
 import json
 
-with open("key.json", "r") as f:
-    cred_dict = json.load(f)
-cred = credentials.Certificate(cred_dict)
-firebase_admin.initialize_app(cred)
-db = firestore.client()
-
+try:
+    # Load Firestore credentials from environment variable
+    firestore_key = os.getenv("FIRESTORE_KEY")
+    if firestore_key:
+        cred_dict = json.loads(firestore_key)
+        cred = credentials.Certificate(cred_dict)
+        
+        # Ensure Firebase is only initialized once
+        if not firebase_admin._apps:
+            firebase_admin.initialize_app(cred)
+            st.success("Firebase initialized successfully!")
+        else:
+            st.warning("Firebase already initialized.")
+    else:
+        st.error("Firestore credentials not found in environment variables!")
+except Exception as e:
+    st.error(f"Error initializing Firebase: {e}")
 
 
 # Custom CSS for styling

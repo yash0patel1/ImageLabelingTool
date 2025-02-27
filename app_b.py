@@ -22,7 +22,7 @@ try:
         st.error("Firestore credentials not found in environment variables!")
 except Exception as e:
     st.error(f"Error initializing Firebase: {e}")
-
+db = firestore.client()
 
 # Custom CSS for styling
 st.markdown(

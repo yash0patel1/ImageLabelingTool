@@ -11,7 +11,7 @@ cred = credentials.Certificate(cred_dict)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-db = firestore.client()
+
 
 # Custom CSS for styling
 st.markdown(

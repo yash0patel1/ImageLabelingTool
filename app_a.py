@@ -5,24 +5,26 @@ from PIL import Image
 import os
 import toml
 
-# Access Firebase secrets
+
+# Load Firebase credentials from Streamlit secrets
 firebase_secrets = st.secrets["firebase"]
 
-# Initialize Firebase
-cred = credentials.Certificate({
-    "type": firebase_secrets["type"],
-    "project_id": firebase_secrets["project_id"],
-    "private_key_id": firebase_secrets["private_key_id"],
-    "private_key": firebase_secrets["private_key"],
-    "client_email": firebase_secrets["client_email"],
-    "client_id": firebase_secrets["client_id"],
-    "auth_uri": firebase_secrets["auth_uri"],
-    "token_uri": firebase_secrets["token_uri"],
-    "auth_provider_x509_cert_url": firebase_secrets["auth_provider_x509_cert_url"],
-    "client_x509_cert_url": firebase_secrets["client_x509_cert_url"],
-    "universe_domain": firebase_secrets["universe_domain"]
-})
-firebase_admin.initialize_app(cred)
+# Initialize Firebase Admin SDK
+if not firebase_admin._apps:
+    cred = credentials.Certificate({
+        "type": firebase_secrets["type"],
+        "project_id": firebase_secrets["project_id"],
+        "private_key_id": firebase_secrets["private_key_id"],
+        "private_key": firebase_secrets["private_key"],
+        "client_email": firebase_secrets["client_email"],
+        "client_id": firebase_secrets["client_id"],
+        "auth_uri": firebase_secrets["auth_uri"],
+        "token_uri": firebase_secrets["token_uri"],
+        "auth_provider_x509_cert_url": firebase_secrets["auth_provider_x509_cert_url"],
+        "client_x509_cert_url": firebase_secrets["client_x509_cert_url"],
+        "universe_domain": firebase_secrets["universe_domain"]
+    })
+    firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 

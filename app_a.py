@@ -4,7 +4,6 @@ from firebase_admin import credentials, firestore
 from PIL import Image
 import os
 
-import os
 from dotenv import load_dotenv
 
 load_dotenv()

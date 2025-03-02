@@ -3,10 +3,26 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from PIL import Image
 import os
+import toml
+
+# Load secrets
+secrets = st.secrets["firebase"]
 
 # Initialize Firebase Admin SDK
 if not firebase_admin._apps:
-    cred = credentials.Certificate(r"D:\Downloads\key.json")
+    cred = credentials.Certificate({
+        "type": "service_account",
+        "project_id": secrets["project_id"],
+        "private_key_id": secrets["private_key_id"],
+        "private_key": secrets["private_key"],
+        "client_email": secrets["client_email"],
+        "client_id": secrets["client_id"],
+        "auth_uri": secrets["auth_uri"],
+        "token_uri": secrets["token_uri"],
+        "auth_provider_x509_cert_url": secrets["auth_provider_x509_cert_url"],
+        "client_x509_cert_url": secrets["client_x509_cert_url"],
+        "universe_domain": secrets["universe_domain"]
+    })
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()

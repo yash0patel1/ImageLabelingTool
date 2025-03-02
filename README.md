@@ -1,4 +1,4 @@
-# Pothole Detection Classification Tool 🕳️🚗
+# Pothole Detection Classification Tool 
 
 ## Overview
 The Pothole Detection App is designed to help users analyze road conditions by uploading images and classifying various features such as potholes, cracks, lane markings, and more. The app provides a user-friendly interface and integrates with Firebase for user authentication and data storage.

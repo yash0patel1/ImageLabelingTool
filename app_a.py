@@ -304,7 +304,7 @@ def view_all_classifications():
         st.markdown('</div>', unsafe_allow_html=True)
 
 def homepage():
-    st.markdown("# Pothole Detection App 🕳️🚗")
+    st.markdown("# Pothole Detection Classification Tool 🕳️🚗")
     st.markdown("---")
     with st.container():
         st.markdown('<div class="bordered-section">', unsafe_allow_html=True)

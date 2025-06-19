@@ -73,4 +73,13 @@ The application is built using Streamlit, a modern Python library for creating i
 2. **View Classifications:** View all classifications for the selected project.
 3. **Export Data:** Export the classification results to CSV or JSON format for further analysis.
 
+## To Run local
 
+- Generate the Private key from Firebase
+- Run app_local.py
+
+
+## To deply On Streamlit cloud
+
+- Need to include extra coniguration from deploy.txt
+- Deploy app_a.py

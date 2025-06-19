@@ -77,7 +77,7 @@ The application is built using Streamlit, a modern Python library for creating i
 
 - Generate the Private key from Firebase
 - Run app_local.py
-
+key.png
 
 ## To deply On Streamlit cloud
 

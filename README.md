@@ -83,3 +83,4 @@ The application is built using Streamlit, a modern Python library for creating i
 
 - Need to include extra coniguration from deploy.txt
 - Deploy app_a.py
+- https://imagelabelingtool-bnsnpj5tm4vvzwav248pk5.streamlit.app/
